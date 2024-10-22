@@ -1,0 +1,36 @@
+<!-- registration.component.html -->
+<h2>Registration Form</h2>
+
+<form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name" [(ngModel)]="name" required><br><br>
+
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" [(ngModel)]="email" required><br><br>
+
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password" [(ngModel)]="password" required><br><br>
+
+  <label>Gender:</label><br>
+  <input type="radio" id="male" name="gender" value="Male" [(ngModel)]="gender">
+  <label for="male">Male</label><br>
+  <input type="radio" id="female" name="gender" value="Female" [(ngModel)]="gender">
+  <label for="female">Female</label><br><br>
+
+  <label for="country">Country:</label><br>
+  <select id="country" name="country" [(ngModel)]="country">
+    <option value="India">India</option>
+    <option value="USA">USA</option>
+    <option value="UK">UK</option>
+    <option value="Canada">Canada</option>
+  </select><br><br>
+
+  <button type="submit">Submit</button>
+</form>
+
+<h3>Entered Details:</h3>
+<p>Name: {{ name }}</p>
+<p>Email: {{ email }}</p>
+<p>Password: {{ password }}</p>
+<p>Gender: {{ gender }}</p>
+<p>Country: {{ country }}</p>

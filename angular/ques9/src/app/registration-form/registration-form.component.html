@@ -1,0 +1,55 @@
+<form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+	<div>
+	  <label for="name">Name:</label>
+	  <input type="text" id="name" required [(ngModel)]="user.name" name="name" #name="ngModel">
+	  <div *ngIf="name.invalid && (name.dirty || name.touched)">
+		<small>Name is required.</small>
+	  </div>
+	</div>
+
+	<div>
+	  <label for="email">Email:</label>
+	  <input type="email" id="email" required [(ngModel)]="user.email" name="email" #email="ngModel">
+	  <div *ngIf="email.invalid && (email.dirty || email.touched)">
+		<small>Email is required and should be a valid email address.</small>
+	  </div>
+	</div>
+
+	<div>
+	  <label for="password">Password:</label>
+	  <input type="password" id="password" required [(ngModel)]="user.password" name="password" #password="ngModel">
+	  <div *ngIf="password.invalid && (password.dirty || password.touched)">
+		<small>Password is required.</small>
+	  </div>
+	</div>
+
+	<div>
+	  <label>Gender:</label>
+	  <input type="radio" id="male" [(ngModel)]="user.gender" name="gender" value="Male" required> Male
+	  <input type="radio" id="female" [(ngModel)]="user.gender" name="gender" value="Female" required> Female
+	  <div *ngIf="registrationForm.controls.gender?.invalid && (registrationForm.controls.gender.dirty || registrationForm.controls.gender.touched)">
+		<small>Gender is required.</small>
+	  </div>
+	</div>
+
+	<div>
+	  <label for="country">Country:</label>
+	  <select id="country" required [(ngModel)]="user.country" name="country" #country="ngModel">
+		<option value="" disabled>Select Country</option>
+		<option *ngFor="let c of countries" [value]="c">{{ c }}</option>
+	  </select>
+	  <div *ngIf="country.invalid && (country.dirty || country.touched)">
+		<small>Country is required.</small>
+	  </div>
+	</div>
+
+	<button type="submit" [disabled]="registrationForm.invalid">Submit</button>
+  </form>
+
+  <div *ngIf="submitted">
+	<h2>Registration Details</h2>
+	<p><strong>Name:</strong> {{ user.name }}</p>
+	<p><strong>Email:</strong> {{ user.email }}</p>
+	<p><strong>Gender:</strong> {{ user.gender }}</p>
+	<p><strong>Country:</strong> {{ user.country }}</p>
+  </div>
