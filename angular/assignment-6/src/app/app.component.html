@@ -1,0 +1,17 @@
+<!-- app.component.html -->
+<!-- app.component.html -->
+<div style="text-align:left">
+	<h2>Customer List</h2>
+	<table border="1" cellpadding="10">
+	  <tr>
+		<th>#</th>
+		<th>Name</th>
+		<th>Country</th>
+	  </tr>
+	  <tr *ngFor="let customer of customers; let i = index">
+		<td>{{ i + 1 }}</td>
+		<td>{{ customer.Name }}</td>
+		<td>{{ customer.Country }}</td>
+	  </tr>
+	</table>
+  </div>

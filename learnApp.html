@@ -1,0 +1,78 @@
+<html>
+	<body>
+		<h1 id = "p2" onClick="this.innerHTML = 'oops!'">Hello fuck'n world</h1>
+		<button id = "datee" onClick = "displayDate()">Try It</button>
+		<ul>
+			<li>Nithin</li>
+			<li>Nithin</li>
+			<li>Nithin</li>
+			<li>Nithin</li>
+		</ul>
+		<dl>
+			<dt>HTML</dt>
+			<dd>HyperText Markup Language</dd>
+
+			<dt>CSS</dt>
+			<dd>Cascading Style Sheets</dd>
+
+			<dt>JavaScript</dt>
+			<dd>A programming language for the web</dd>
+		  </dl>
+
+		<table border="1" width="300" cellspacing="0">
+			<thead>
+				<tr>
+					<td align="center">Name</td>
+					<td align="center">Number</td>
+					<td align="center">Country</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Name</td>
+					<td>Number</td>
+					<td>Country</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>Name</td>
+					<td>Number</td>
+					<td>Country</td>
+				</tr>
+			</tfoot>
+		</table>
+		<button>Click Me!</button>
+		<a href="####">Not Ad!</a>
+		<input type="text" />
+		<style>
+			button:hover{
+				color:aqua
+			}
+			button:active{
+				background-color:blueviolet;
+			}a
+			a:visited{
+				color:greenyellow;
+			}
+			input:focus{
+				background-color:yellow;
+				color:black;
+
+			}
+		</style>
+
+		<p id="hello"></p>
+		<script>function displayDate(){
+
+
+			document.getElementById("datee").innerHTML = Date();}
+			document.getElementById("hello").innerHTML = "Hello fucking world";
+			const x = document.getElementsByTagName("h1");
+			//document.getElementById("p1").style.color = "blue";
+			document.getElementById("p2").style.color = "blue";
+			document.getElementsByTagName("h1")[0].innerHTML = "This is also H1";
+			console.log(x);
+		</script>
+	</body>
+</html>

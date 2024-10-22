@@ -1,0 +1,23 @@
+<html>
+	<body>
+		<h1>Food</h1>
+		<ul id = "food">
+			<li>Biriyani</li>
+			<li>Porotta</li>
+		</ul>
+		<button id = "addButton" >Add Alfam</button>
+		<button id = "removeButton">Remove porotta</button>
+		<script>
+			const addbutton = document.querySelector("addButton");
+			const removebutton = document.querySelector("removeButton");
+			const foodList = document.querySelector("food");
+			addButton.addEventListener('click',()=>{
+				const newListItem = document.createElement('li');
+				const newListItemtext = document.createTextNode('Alfahm');
+
+				newListItem.append(newListItemtext);
+				food.appendChild(newListItem);
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,166 @@
+<html>
+	<head>
+		<title>Student Registration Form</title>
+		<style>
+			body{
+				background-color: #10202e;
+			}
+			h1 {
+				color: #fef2cc;
+				font-size: medium;
+			}
+			t {
+				color: #fef2cc;
+				font-size: smaller;
+			}
+			span {
+				color: red;
+			}
+		</style>
+	</head>
+	<body onload="setFocusToName()">
+		<h1>Student Registration Form</h1>
+		<div>
+			<div>
+				<t>Name of student</t>
+				<input type="text" id="name" />
+				<span class="error" id="nameError"></span>
+			</div><br />
+			<div>
+				<t>Mobile Number&nbsp;</t>
+				<input type="text" id="mobile" />
+				<span class="error" id="numberError"></span>
+			</div><br />
+			<div>
+				<t>Address Line&nbsp; &nbsp; &nbsp;</t>
+				<input type="text" id="address" />
+				<span class="error" id="addressError"></span>
+			</div><br />
+			<div>
+				<t>City &emsp; &emsp; &emsp; &emsp;</t>
+				<input type="text" id="city" oninput="updatePincode()" />
+				<span class="error" id="cityError"></span>
+			</div><br />
+			<div>
+				<t>State&nbsp; &nbsp; &emsp; &emsp; &emsp;</t>
+				<input type="text" id="state" />
+				<span class="error" id="stateError"></span>
+			</div><br />
+			<div>
+				<t>Pincode&nbsp; &nbsp;  &emsp; &emsp;</t>
+				<input type="text" id="pincode" />
+				<span class="error" id="pincodeError"></span>
+			</div><br />
+			<button onClick="validateForm()">Submit</button>
+			<button type="button" onClick="resetForm()">Reset</button>
+		</div>
+
+		<script>
+			function setFocusToName() {
+				document.getElementById('name').focus();
+			}
+
+			function updatePincode() {
+				var city = document.getElementById('city').value.toLowerCase();
+				var pincodeField = document.getElementById('pincode');
+				var cityPincode = {
+					'kollam': '966699',
+					'trivandrum': '786678',
+					'kochi': '123456'
+				};
+				if (cityPincode[city]) {
+					pincodeField.value = cityPincode[city];
+				} else {
+					pincodeField.value = '';
+				}
+			}
+
+			function validateForm() {
+				var name = document.getElementById('name').value;
+				var mobile = document.getElementById('mobile').value;
+				var address = document.getElementById('address').value;
+				var city = document.getElementById('city').value;
+				var state = document.getElementById('state').value;
+				var pincode = document.getElementById('pincode').value;
+
+				var nameError = document.getElementById('nameError');
+				var numberError = document.getElementById('numberError');
+				var addressError = document.getElementById('addressError');
+				var cityError = document.getElementById('cityError');
+				var stateError = document.getElementById('stateError');
+				var pincodeError = document.getElementById('pincodeError');
+
+				nameError.textContent = '';
+				numberError.textContent = '';
+				addressError.textContent = '';
+				cityError.textContent = '';
+				stateError.textContent = '';
+				pincodeError.textContent = '';
+
+				var isValid = true;
+
+				var nameRegex = /^[A-Za-z\s]+$/;
+				if (name === '') {
+					nameError.textContent = 'Name is required!';
+					isValid = false;
+				} else if (!nameRegex.test(name)) {
+					nameError.textContent = 'Only alphabets are allowed!';
+					isValid = false;
+				}
+
+				var mobileRegex = /^\d{10}$/;
+				if (mobile === '') {
+					numberError.textContent = 'Mobile number is required!';
+					isValid = false;
+				} else if (!mobileRegex.test(mobile)) {
+					numberError.textContent = 'Mobile number must be 10 digits!';
+					isValid = false;
+				}
+
+				if (address === '') {
+					addressError.textContent = "Address is required!";
+					isValid = false;
+				}
+
+				if (city === '') {
+					cityError.textContent = "City is required!";
+					isValid = false;
+				}
+
+				if (state === '') {
+					stateError.textContent = "State is required!";
+					isValid = false;
+				}
+
+				var pincodeRegex = /^\d{6}$/;
+				if (pincode === '') {
+					pincodeError.textContent = 'Pincode is required!';
+					isValid = false;
+				} else if (!pincodeRegex.test(pincode)) {
+					pincodeError.textContent = 'Pincode must be 6 digits!';
+					isValid = false;
+				}
+
+				if (isValid) {
+					alert('Form submitted successfully!');
+				}
+			}
+
+			function resetForm() {
+				document.getElementById('name').value = '';
+				document.getElementById('mobile').value = '';
+				document.getElementById('address').value = '';
+				document.getElementById('city').value = '';
+				document.getElementById('state').value = '';
+				document.getElementById('pincode').value = '';
+
+				document.getElementById('nameError').textContent = '';
+				document.getElementById('numberError').textContent = '';
+				document.getElementById('addressError').textContent = '';
+				document.getElementById('cityError').textContent = '';
+				document.getElementById('stateError').textContent = '';
+				document.getElementById('pincodeError').textContent = '';
+			}
+		</script>
+	</body>
+</html>

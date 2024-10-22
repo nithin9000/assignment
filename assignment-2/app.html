@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<style>
+			body{
+				font-family:Arial,sans-serif;
+			}
+			ul{
+				list-style-type:circle;
+			}
+			li{
+				font-family:'Courier New', Courier, monospace;
+				color:brown;
+				font-size:larger;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Drinks list</h1>
+			<ul id="drinks-list">
+				<li>Coffe</li>
+				<li>Tea</li>
+			</ul>
+			<button onClick="appendWater()">Add water</button>
+	</body>
+	<script>
+		function appendWater(){
+			var li = document.createElement('li');
+			li.textContent = 'Water';
+
+			document.getElementById('drinks-list').appendChild(li);
+		}
+	</script>
+</html>

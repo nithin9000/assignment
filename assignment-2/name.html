@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>First and Last Name Form</title>
+    <script>
+        function getUserInfo() {
+            var firstName = prompt("Please enter your first name:");
+            var lastName = prompt("Please enter your last name:");
+
+            if (firstName && lastName) {
+                alert("You have entered: \nFirst Name: " + firstName + "\nLast Name: " + lastName);
+            } else {
+                alert("Please enter both first name and last name.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Enter Your Name</h1>
+    <button onclick="getUserInfo()">Submit</button>
+</body>
+</html>
